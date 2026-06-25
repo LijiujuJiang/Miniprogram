@@ -1,0 +1,24 @@
+<view class="container">
+
+<image
+  class="banner"
+  src="/images/banner.jpg"
+  mode="aspectFill"
+/>
+
+<view class="title">
+  摄影预约系统
+</view>
+
+<view class="desc">
+  COS摄影｜个人写真｜情侣摄影
+</view>
+
+<button
+  class="book-btn"
+  bindtap="goBooking"
+>
+  立即预约
+</button>
+
+</view>

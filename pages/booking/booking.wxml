@@ -1,0 +1,18 @@
+<view class="container">
+
+<view class="section">
+
+  <text>拍摄主题</text>
+
+  <picker
+    range="{{themes}}"
+    bindchange="themeChange"
+  >
+    <view class="picker">
+      {{selectedTheme}}
+    </view>
+  </picker>
+
+</view>
+
+</view>

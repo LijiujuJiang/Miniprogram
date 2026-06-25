@@ -1,0 +1,34 @@
+.container {
+    padding: 30rpx;
+  }
+  
+  .section {
+    margin-bottom: 40rpx;
+  }
+  
+  .picker {
+  
+    margin-top: 10rpx;
+  
+    border: 1px solid #ddd;
+  
+    padding: 20rpx;
+  
+    border-radius: 10rpx;
+  }
+  
+  input {
+  
+    border: 1px solid #ddd;
+  
+    padding: 20rpx;
+  
+    border-radius: 10rpx;
+  
+    margin-top: 10rpx;
+  }
+  
+  .submit-btn {
+  
+    margin-top: 60rpx;
+  }
