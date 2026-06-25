@@ -32,3 +32,74 @@
   
     margin-top: 60rpx;
   }
+
+  .book-btn {
+    margin-top: 60rpx;
+  }
+
+
+
+.arrow{
+
+    width:80rpx;
+
+    text-align:center;
+
+    font-size:36rpx;
+
+}
+
+.title{
+
+    font-size:34rpx;
+
+    font-weight:bold;
+
+}
+
+.week{
+
+    display:flex;
+
+}
+
+.week text{
+
+    width:14.28%;
+
+    text-align:center;
+
+    color:#999;
+
+}
+
+.days{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+}
+
+.day{
+
+    width:14.28%;
+
+    height:90rpx;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+.calendar-box{
+
+  margin-top:20rpx;
+
+  border-radius:20rpx;
+
+  overflow:hidden;
+
+}

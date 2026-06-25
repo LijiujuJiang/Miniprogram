@@ -1,0 +1,60 @@
+<view class="calendar">
+
+    <view class="calendar-header">
+
+<view
+    class="month-btn"
+    bindtap="prevMonth">
+
+    ＜
+
+</view>
+
+<view>
+
+    {{year}}年{{month}}月
+
+</view>
+
+<view
+    class="month-btn"
+    bindtap="nextMonth">
+
+    ＞
+
+</view>
+
+</view>
+
+<view class="week">
+
+    <text>一</text>
+    <text>二</text>
+    <text>三</text>
+    <text>四</text>
+    <text>五</text>
+    <text>六</text>
+    <text>日</text>
+
+</view>
+
+<view class="days">
+
+<view
+    class="day
+    {{item.weekend?'weekend':'workday'}}
+    {{item.selected?'selected':''}}"
+    wx:for="{{calendar}}"
+    wx:key="date"
+    data-item="{{item}}"
+    bindtap="selectDate">
+
+    <block wx:if="{{!item.empty}}">
+        {{item.day}}
+    </block>
+
+</view>
+
+</view>
+
+</view>

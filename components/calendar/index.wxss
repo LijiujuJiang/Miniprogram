@@ -1,0 +1,101 @@
+.calendar{
+
+    background:#fff;
+
+    padding:20rpx;
+
+    border-radius:20rpx;
+
+}
+
+.calendar-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30rpx;
+
+}
+
+.week{
+
+    display:flex;
+
+}
+
+.week text{
+
+    width:14.28%;
+
+    text-align:center;
+
+    color:#888;
+
+}
+
+.days{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+}
+
+.day{
+
+    width:14.28%;
+
+    height:90rpx;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius: 50%;
+
+}
+.workday{
+
+    color:#cccccc;
+
+}
+.weekend{
+
+    color:#333;
+
+}
+.selected{
+
+    background:#1677ff;
+
+    color:white;
+
+}
+
+.month-btn{
+
+    width:70rpx;
+
+    height:70rpx;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:40rpx;
+
+    border-radius:50%;
+
+}
+.month-btn:active{
+
+    background:#eeeeee;
+
+}

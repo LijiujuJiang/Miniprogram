@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "miniprogram-calendar": "^1.0.0"
+  },
+  "name": "miniprogram-1",
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LijiujuJiang/Miniprogram.git"
+  },
+  "author": "JLJJ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LijiujuJiang/Miniprogram/issues"
+  },
+  "homepage": "https://github.com/LijiujuJiang/Miniprogram#readme",
+  "description": ""
+}

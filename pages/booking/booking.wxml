@@ -1,7 +1,25 @@
 <view class="container">
 
+
+
+<button
+class="book-btn"
+bindtap="goIndex"
+>
+    返回
+</button>
+
 <view class="section">
 
+<text>姓名</text>
+
+<input
+  placeholder="请输入角色名/IP（例：三月七/崩铁）"
+  bindinput="inputName"
+/>
+
+</view>
+<view class="section">
   <text>拍摄主题</text>
 
   <picker
@@ -12,7 +30,86 @@
       {{selectedTheme}}
     </view>
   </picker>
+</view>
+
+<view class="section">
+
+<text>拍摄日期</text>
+
+<view
+    class="picker"
+    bindtap="showCalendar">
+
+    {{date}}
 
 </view>
+<view
+    class="calendar-box"
+    hidden="{{!showCalendar}}">
+
+    <calendar
+        selected-date="{{date}}"
+        bind:select="onCalendarSelect">
+    </calendar>
+
+</view>
+
+</view>
+
+
+<view class="section">
+
+<text>开始时间</text>
+
+<picker
+  range="{{startTimes}}"
+  bindchange="startTimeChange">
+
+  <view class="picker">
+    {{selectedStartTime}}
+  </view>
+
+</picker>
+
+</view>
+
+<view class="section">
+
+<text>拍摄时长</text>
+
+<picker
+  range="{{durationOptions}}"
+  bindchange="durationChange">
+
+  <view class="picker">
+    {{selectedDuration}}
+  </view>
+
+</picker>
+
+</view>
+
+<view class="section">
+
+<text>预约时段</text>
+
+<view class="result-time">
+  {{bookingTimeRange}}
+</view>
+
+<text>总计：</text>
+<view class="result-money">
+  {{moneyRange}}
+</view>
+
+</view>
+
+<button
+    class="submit-btn"
+    bindtap="submitBooking"
+  >
+    提交预约
+  </button>
+
 
 </view>
