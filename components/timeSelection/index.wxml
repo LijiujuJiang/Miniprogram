@@ -1,0 +1,37 @@
+<view class="container">
+
+<block wx:if="{{timeList.length==0}}">
+
+    <view class="empty">
+
+        请先选择拍摄主题
+
+    </view>
+
+</block>
+
+<block wx:else>
+
+    <view class="grid">
+
+        <view
+
+            wx:for="{{timeList}}"
+
+            wx:key="text"
+
+            class="item {{item.selected?'active':''}}"
+
+            data-index="{{index}}"
+
+            bindtap="chooseTime">
+
+            {{item.text}}
+
+        </view>
+
+    </view>
+
+</block>
+
+</view>

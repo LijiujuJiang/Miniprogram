@@ -59,49 +59,19 @@ bindtap="goIndex"
 
 <view class="section">
 
-<text>开始时间</text>
+<text>请选择预约时间</text>
+<timeSelection
 
-<picker
-  range="{{startTimes}}"
-  bindchange="startTimeChange">
+    theme="{{selectedTheme}}"
 
-  <view class="picker">
-    {{selectedStartTime}}
-  </view>
+    bind:change="onTimeSelected">
 
-</picker>
+</timeSelection>
 
 </view>
 
 <view class="section">
-
-<text>拍摄时长</text>
-
-<picker
-  range="{{durationOptions}}"
-  bindchange="durationChange">
-
-  <view class="picker">
-    {{selectedDuration}}
-  </view>
-
-</picker>
-
-</view>
-
-<view class="section">
-
-<text>预约时段</text>
-
-<view class="result-time">
-  {{bookingTimeRange}}
-</view>
-
-<text>总计：</text>
-<view class="result-money">
-  {{moneyRange}}
-</view>
-
+<text>总计：{{moneyRange}}</text>
 </view>
 
 <button
