@@ -234,8 +234,6 @@ Page({
 
           name: this.data.name,
 
-          wechat: this.data.wechat,
-
           theme: this.data.selectedTheme,
 
           date: this.data.date,
@@ -259,6 +257,26 @@ Page({
           title: "预约成功"
 
       })
+
+      //数据存储
+      const db = wx.cloud.database()
+      db.collection("booking").add({
+
+        data:{
+    
+            name:this.data.name,
+    
+            theme:this.data.selectedTheme,
+    
+            date:this.data.date,
+    
+            time:this.data.bookingTimeRange,
+    
+            money:this.data.moneyRange
+    
+        }
+    
+    })
 
   }
 
