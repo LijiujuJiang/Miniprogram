@@ -205,6 +205,23 @@ Page({
   ----------------------------*/
 
   submitBooking() {
+    const name = this.data.name.trim()
+
+// 必须为 CN/IP 格式
+const reg = /^.+\/.+$/
+
+if (!reg.test(name)) {
+
+    wx.showToast({
+
+        title: "请输入CN/角色名，例如：小红/三月七",
+
+        icon: "none"
+
+    })
+
+    return
+}
 
       if (
 
@@ -252,11 +269,7 @@ Page({
 
       console.log("预约信息：", bookingData)
 
-      wx.showToast({
-
-          title: "预约成功"
-
-      })
+      
 
       //数据存储
       const db = wx.cloud.database()
@@ -271,13 +284,96 @@ Page({
             date:this.data.date,
     
             time:this.data.bookingTimeRange,
+
+            startTime: this.data.startTime,
+
+            endTime: this.data.endTime,
     
-            money:this.data.moneyRange
+            money:this.data.moneyRange,
+            
+            createTime: new Date()
     
-        }
+        },
+         success: res => {
+
+        wx.showToast({
+
+            title: "预约成功",
+            icon: "success",
+            duration: 1500
+
+        })
+
+        // 1.5秒后返回首页
+        setTimeout(() => {
+
+            wx.reLaunch({
+
+                url: "/pages/index/index"
+
+            })
+
+        }, 1500)
+
+    },
+     fail: err => {
+
+        wx.showToast({
+
+            title: "预约失败",
+            icon: "none"
+
+        })
+
+        console.error(err)
+
+    }
     
     })
 
-  }
+  },
+
+
+  /* ---------------------------
+   日历
+----------------------------*/
+
+showCalendar() {
+
+  this.setData({
+
+      showCalendar: !this.data.showCalendar
+
+  })
+
+},
+
+closeCalendar() {
+
+  this.setData({
+
+      showCalendar: false
+
+  })
+
+},
+
+onCalendarSelect(e) {
+
+  this.setData({
+
+      date: e.detail.date,
+
+      showCalendar: false,
+
+      bookingTimeRange: "",
+
+      duration: 0,
+
+      moneyRange: 0
+
+  })
+
+},
 
 })

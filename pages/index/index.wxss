@@ -23,3 +23,6 @@
 .book-btn {
   margin-top: 60rpx;
 }
+.view-btn {
+  margin-top: 80rpx;
+}

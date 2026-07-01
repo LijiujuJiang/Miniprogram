@@ -26,7 +26,13 @@
 
             bindtap="chooseTime">
 
-            {{item.text}}
+            <text>{{item.text}}</text>
+            <text
+             wx:if="{{item.disabled}}"
+             class="full">
+             已约满
+             </text>
+
 
         </view>
 

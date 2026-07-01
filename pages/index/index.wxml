@@ -21,4 +21,11 @@
   立即预约
 </button>
 
+<button
+  class="view-btn"
+  bindtap="goView"
+>
+  日程表
+</button>
+
 </view>

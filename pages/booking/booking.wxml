@@ -1,85 +1,133 @@
 <view class="container">
 
+<!-- 顶部 -->
+<view class="header">
 
+<view
+    class="back-btn"
+    bindtap="goIndex">
 
-<button
-class="book-btn"
-bindtap="goIndex"
->
     返回
-</button>
-
-<view class="section">
-
-<text>姓名</text>
-
-<input
-  placeholder="请输入角色名/IP（例：三月七/崩铁）"
-  bindinput="inputName"
-/>
 
 </view>
-<view class="section">
-  <text>拍摄主题</text>
 
-  <picker
-    range="{{themes}}"
-    bindchange="themeChange"
-  >
-    <view class="picker">
-      {{selectedTheme}}
+<view class="title">
+
+    摄影预约
+
+</view>
+
+<view class="desc">
+
+    Photography Booking
+
+</view>
+
+</view>
+
+<!-- 姓名 -->
+<view class="card">
+
+    <view class="label">
+        CN / 角色
     </view>
-  </picker>
-</view>
 
-<view class="section">
-
-<text>拍摄日期</text>
-
-<view
-    class="picker"
-    bindtap="showCalendar">
-
-    {{date}}
-
-</view>
-<view
-    class="calendar-box"
-    hidden="{{!showCalendar}}">
-
-    <calendar
-        selected-date="{{date}}"
-        bind:select="onCalendarSelect">
-    </calendar>
+    <input
+        class="input"
+        placeholder="请输入CN/角色（例：小红/三月七）"
+        bindinput="inputName"/>
 
 </view>
 
+<!-- 日期 -->
+<view class="card">
+
+    <view class="label">
+        拍摄日期
+    </view>
+
+    <view
+        class="picker"
+        bindtap="showCalendar">
+
+        <text>{{date}}</text>
+
+        <text class="arrow">📅</text>
+
+    </view>
+
+    <view
+        class="calendar-box"
+        hidden="{{!showCalendar}}">
+
+        <calendar
+            selected-date="{{date}}"
+            bind:select="onCalendarSelect">
+        </calendar>
+
+    </view>
+
 </view>
 
+<!-- 主题 -->
+<view class="card">
 
-<view class="section">
+    <view class="label">
+        拍摄主题
+    </view>
 
-<text>请选择预约时间</text>
-<timeSelection
+    <picker
+        range="{{themes}}"
+        bindchange="themeChange">
 
-    theme="{{selectedTheme}}"
+        <view class="picker">
 
-    bind:change="onTimeSelected">
+            <text>{{selectedTheme}}</text>
 
-</timeSelection>
+            <text class="arrow">></text>
+
+        </view>
+
+    </picker>
 
 </view>
 
-<view class="section">
-<text>总计：{{moneyRange}}</text>
+<!-- 时间 -->
+<view class="card">
+
+    <view class="label">
+        预约时间
+    </view>
+
+    <timeSelection
+
+        theme="{{selectedTheme}}"
+
+        date="{{date}}"
+
+        bind:change="onTimeSelected">
+
+    </timeSelection>
+
+</view>
+
+<!-- 金额 -->
+<view class="price-card">
+
+    <text class="price-title">
+        总金额
+    </text>
+
+    <text class="price">
+        ￥{{moneyRange}}
+    </text>
+
 </view>
 
 <button
     class="submit-btn"
-    bindtap="submitBooking"
-  >
+    bindtap="submitBooking">
     提交预约
-  </button>
-
+</button>
 
 </view>

@@ -63,3 +63,28 @@
   border-color:#1677ff;
 
 }
+.disabled{
+
+  background:#eeeeee;
+
+  color:#999;
+
+}
+
+.full{
+
+  color:#ff4d4f;
+
+  font-size:22rpx;
+
+  margin-top:8rpx;
+
+}
+
+.selected{
+
+  background:#409EFF;
+
+  color:#fff;
+
+}

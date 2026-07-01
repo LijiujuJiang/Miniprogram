@@ -6,7 +6,14 @@ Component({
         selectedDate:{
             type:String,
             value:""
-        }
+        },
+        bookingMap:{
+
+          type:Object,
+  
+          value:{}
+  
+      }
     },
 
     data: {
@@ -64,7 +71,15 @@ Component({
             item.selected =
             item.date == selected
 
-})
+            })
+            const bookingMap = this.properties.bookingMap
+
+            list.forEach(item=>{
+
+            if(item.empty) return
+
+            item.hasBooking = !!bookingMap[item.date]
+          })
         
             this.setData({
         
@@ -176,7 +191,12 @@ Component({
     
             this.createCalendar()
     
-        }
+        },
+        "bookingMap":function(){
+
+          this.createCalendar()
+
+      }
     
     },
 

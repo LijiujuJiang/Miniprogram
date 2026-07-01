@@ -40,17 +40,19 @@
 
 <view class="days">
 
-<view
-    class="day
-    {{item.weekend?'weekend':'workday'}}
-    {{item.selected?'selected':''}}"
+  <view
+    class="day {{item.weekend ? 'weekend' : 'workday'}} {{item.selected ? 'selected' : ''}}"
     wx:for="{{calendar}}"
     wx:key="date"
     data-item="{{item}}"
     bindtap="selectDate">
 
     <block wx:if="{{!item.empty}}">
-        {{item.day}}
+    <text>{{item.day}}</text>
+    <view
+        wx:if="{{item.hasBooking}}"
+        class="dot">
+    </view>
     </block>
 
 </view>

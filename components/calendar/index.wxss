@@ -99,3 +99,18 @@
     background:#eeeeee;
 
 }
+
+.dot{
+
+  width:10rpx;
+
+  height:10rpx;
+
+  border-radius:50%;
+
+  background:#409EFF;
+
+  margin:0 auto;
+  margin-top:6rpx;
+
+}

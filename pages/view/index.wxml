@@ -1,0 +1,54 @@
+<view class="container">
+
+<button bindtap="goIndex">
+
+    返回
+
+</button>
+
+<calendar
+
+    booking-map="{{bookingMap}}"
+
+    bind:select="onCalendarSelect">
+
+</calendar>
+
+<view
+    wx:if="{{bookingList.length}}"
+    class="detail">
+
+    <view class="title">
+
+        {{currentDate}}
+
+    </view>
+
+    <block
+        wx:for="{{bookingList}}"
+        wx:key="_id">
+
+        <view class="card">
+
+            <view>{{item.name}}</view>
+
+            <view>{{item.theme}}</view>
+
+            <view>
+
+                {{item.startTime}}
+
+                -
+
+                {{item.endTime}}
+
+            </view>
+
+        
+        </view>
+
+    </block>
+
+</view>
+
+</view>

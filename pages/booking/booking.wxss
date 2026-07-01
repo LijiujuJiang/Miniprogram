@@ -1,105 +1,223 @@
-.container {
-    padding: 30rpx;
-  }
-  
-  .section {
-    margin-bottom: 40rpx;
-  }
-  
-  .picker {
-  
-    margin-top: 10rpx;
-  
-    border: 1px solid #ddd;
-  
-    padding: 20rpx;
-  
-    border-radius: 10rpx;
-  }
-  
-  input {
-  
-    border: 1px solid #ddd;
-  
-    padding: 20rpx;
-  
-    border-radius: 10rpx;
-  
-    margin-top: 10rpx;
-  }
-  
-  .submit-btn {
-  
-    margin-top: 60rpx;
-  }
+page{
 
-  .book-btn {
-    margin-top: 60rpx;
-  }
+  background:#EEF3F8;
 
+}
 
+.container{
 
-.arrow{
+  padding:30rpx;
 
-    width:80rpx;
+  display:flex;
 
-    text-align:center;
+  flex-direction:column;
 
-    font-size:36rpx;
+  align-items:center;
+
+}
+
+/**************** Header ****************/
+
+.header{
+
+  position: relative;
+
+  width: 100%;
+
+  height: 120rpx;
+
+  margin-top: 40rpx;
+
+  margin-bottom: 40rpx;
+
+}
+
+.back-btn{
+
+  position:absolute;
+
+  left:20rpx;
+
+  top:20rpx;
+
+  color:#4E6EF2;
+
+  font-size:40rpx;
+
+  font-weight:600;
 
 }
 
 .title{
 
-    font-size:34rpx;
+  text-align: center;
 
-    font-weight:bold;
+  font-size: 54rpx;
 
-}
+  font-weight: bold;
 
-.week{
-
-    display:flex;
+  color: #2F415E;
 
 }
 
-.week text{
+.desc{
 
-    width:14.28%;
+  text-align: center;
 
-    text-align:center;
+  color:#94A3B8;
 
-    color:#999;
+  font-size:24rpx;
 
-}
-
-.days{
-
-    display:flex;
-
-    flex-wrap:wrap;
+  margin-top:10rpx;
 
 }
 
-.day{
 
-    width:14.28%;
+/**************** 卡片 ****************/
 
-    height:90rpx;
+.card{
 
-    display:flex;
+  width:90%;
 
-    justify-content:center;
+  background:#fff;
 
-    align-items:center;
+  border-radius:26rpx;
+
+  padding:28rpx;
+
+  margin-bottom:25rpx;
+
+  box-shadow:0 12rpx 24rpx rgba(0,0,0,.05);
+
+  box-sizing:border-box;
 
 }
+
+.label{
+
+  color:#7A8BA8;
+
+  font-size:25rpx;
+
+  margin-bottom:18rpx;
+
+}
+
+.input{
+
+  height:82rpx;
+
+  font-size:30rpx;
+
+}
+
+/**************** picker ****************/
+
+.picker{
+
+  min-height:82rpx;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  font-size:30rpx;
+
+}
+
+.arrow{
+
+  color:#AAB5C8;
+
+}
+
+/**************** 日历 ****************/
+
 .calendar-box{
 
-  margin-top:20rpx;
+  margin-top:25rpx;
 
-  border-radius:20rpx;
+  border-top:1rpx solid #EDF1F5;
 
-  overflow:hidden;
+  padding-top:20rpx;
+
+}
+
+/**************** 金额 ****************/
+
+.price-card{
+
+  width:90%;
+
+  margin-top:25rpx;
+
+  margin-bottom:35rpx;
+
+  background:linear-gradient(135deg,#4E6EF2,#7898FF);
+
+  color:white;
+
+  border-radius:28rpx;
+
+  padding:35rpx;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  box-sizing:border-box;
+
+}
+
+.price-title{
+
+  font-size:28rpx;
+
+}
+
+.price{
+
+  font-size:54rpx;
+
+  font-weight:bold;
+
+}
+
+/**************** 提交按钮 ****************/
+
+.submit-btn{
+  padding: 0;
+
+  height:92rpx;
+
+  line-height:92rpx;
+
+  border-radius:46rpx;
+
+  background:#4E6EF2;
+
+  color:white;
+
+  font-size:32rpx;
+
+  font-weight:bold;
+
+  box-shadow:0 12rpx 24rpx rgba(78,110,242,.35);
+
+}
+
+.submit-btn::after{
+
+  border:none;
+
+}
+
+.submit-btn:active{
+
+  background:#3B5ADF;
 
 }

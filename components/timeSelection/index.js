@@ -25,13 +25,20 @@ Component({
 
           value: "",
 
-          observer() {
-
-              this.generateTimeList()
-
-          }
-
       },
+      date: {
+
+        type: String,
+
+        value: "",
+
+        observer() {
+
+            this.generateTimeList()
+
+        }
+
+    },
 
   },
 
@@ -40,6 +47,18 @@ Component({
       timeList: []
 
   },
+
+  observers: {
+
+    "theme,date": function(theme, date) {
+
+        this.generateTimeList()
+
+        this.loadBooking()
+
+    }
+
+},
 
   methods: {
 
@@ -107,7 +126,8 @@ Component({
                 text:
                     `${String(start).padStart(2, "0")}:00 - ${String(end).padStart(2, "0")}:00`,
 
-                selected: false
+                selected: false,
+                disabled: false
 
             })
 
@@ -125,10 +145,25 @@ Component({
        * 点击时间段
        */
       chooseTime(e) {
+        const index = e.currentTarget.dataset.index
+        const list = this.data.timeList
+        const item = list[index]
 
-          const index = e.currentTarget.dataset.index
+        if (item.disabled) {
+        
+            wx.showToast({
+        
+                title: "该时间段已约满",
+        
+                icon: "none"
+        
+            })
+        
+            return
+        
+        }
 
-          const list = this.data.timeList
+         
 
           list.forEach(item => {
 
@@ -166,8 +201,97 @@ Component({
 
             })
 
-      }
+      },
 
-  }
+      loadBooking() {
+
+        if (!this.properties.date ||
+            this.properties.date === "请选择日期") {
+    
+            return
+        }
+    
+        const db = wx.cloud.database()
+    
+        db.collection("booking")
+            .where({
+    
+                date: this.properties.date
+    
+            })
+            .get({
+    
+                success: res => {
+    
+                    console.log("当天预约：", res.data)
+    
+                    this.markDisabled(res.data)
+    
+                },
+    
+                fail: err => {
+    
+                    console.error(err)
+    
+                }
+    
+            })
+    
+      },
+
+    markDisabled(bookList) {
+
+      const list = this.data.timeList
+  
+      // 先全部恢复
+      list.forEach(item => {
+  
+          item.disabled = false
+  
+      })
+  
+      // 遍历数据库预约
+      bookList.forEach(book => {
+  
+          const start =
+              parseInt(book.startTime)
+  
+          const end =
+              parseInt(book.endTime)
+  
+          list.forEach(item => {
+  
+              if (this.isOverlap(
+  
+                  item.start,
+                  item.end,
+                  start,
+                  end
+  
+              )) {
+  
+                  item.disabled = true
+  
+              }
+  
+          })
+  
+      })
+  
+      this.setData({
+  
+          timeList: list
+  
+      })
+  
+  },
+
+  isOverlap(start1, end1, start2, end2) {
+
+    return start1 < end2 && end1 > start2
+
+},
+
+}
 
 })
